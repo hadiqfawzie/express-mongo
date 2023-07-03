@@ -10,7 +10,7 @@ app.use(routerMahasiswa)
 
 const mongoose = require('mongoose')
 require('dotenv').config();
-mongoose.connect(process.env.DATABASE_URL,
+mongoose.connect(/* process.env.DATABASE_URL */"mongodb+srv://hadiqfawzie:24ZH30o5eZTVTNbX@cluster0.7dt5grk.mongodb.net/?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
