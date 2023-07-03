@@ -1,0 +1,21 @@
+{
+  "name": "first-app",
+  "version": "1.0.0",
+  "description": "kuliahBackEnd",
+  "main": "index.js",
+  "engines" : {
+    "node" : "16.x"
+  }
+  "scripts": {
+    "start" : "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hadiq",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0",
+    "mysql": "^2.18.1"
+  }
+}

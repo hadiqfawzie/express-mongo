@@ -1,0 +1,25 @@
+ 
+  
+  //update embedded document
+  db.getCollection('mahasiswa').updateOne({ "nim": "1120100100", "nilai": { $elemMatch: { "semester": 1, "kdMk": "TI-101" } } },
+  { $set: { "nilai.$.nilai": "AB" } });
+  
+  //hapus
+db.getCollection('mahasiswa').updateOne({ "nim": "3120100100"},
+  { $pull: { nilai : { "kdMk": "MI-101", "semester": 1 } }});
+  
+  
+//get mahasiswa by nim and semester
+//1
+db.getCollection('mahasiswa').find(
+      {"nim" : "1121100100", 'nilai.semester' : {$eq : 1 }},
+      {_id : 0, nilai : 1}
+    )
+
+//2
+db.getCollection('mahasiswa').aggregate([
+      { $match: { nim: "1121100100" } },
+      { $unwind: '$nilai' },
+      { $match: { 'nilai.semester': 1 } },
+      { $project: { _id: 0, nilai: 1 } }
+    ])
